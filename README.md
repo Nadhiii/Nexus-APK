@@ -10,7 +10,7 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 ## Core Features
 
-### 💰 Finance Management
+### Finance Management
 
 **Accounts**
 - Create and manage multiple accounts (Savings, Salary, Investment, Cash, etc.)
@@ -21,7 +21,6 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 **Transactions**
 - Track income, expenses, and account transfers
-- Auto-categorization based on merchant/description
 - Attach receipts and notes
 - Bulk operations (multi-select, batch delete)
 - Transaction history with advanced filtering
@@ -42,7 +41,7 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 ---
 
-### 📊 Investment Tracking
+### Investment Tracking
 
 **Supported Investment Types**:
 - Mutual Funds (with SIP tracking)
@@ -62,7 +61,7 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 ---
 
-### 💳 Debt & Loan Management
+### Debt & Loan Management
 
 **Loan Types**:
 - Personal, Home, Car, Education, Business loans
@@ -86,7 +85,7 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 ---
 
-### 📅 Subscription Management
+### Subscription Management
 
 **Features**:
 - Track recurring subscriptions with various frequencies (daily to yearly)
@@ -98,7 +97,7 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 ---
 
-### 🎯 Savings Goals
+### Savings Goals
 
 **Features**:
 - Set financial goals with target amounts and dates
@@ -110,7 +109,7 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 ---
 
-### 🏍️ Vehicle/Bike Management
+### Vehicle/Bike Management
 
 **Garage Features**:
 - Manage multiple vehicles
@@ -123,10 +122,10 @@ Nexus helps you manage your financial life with features ranging from daily tran
 - Log fuel entries with odometer readings
 - Automatic mileage calculation (km/L)
 - Fuel efficiency ratings:
-  - Excellent: >25 km/L 🌟
-  - Good: 20-25 km/L ✅
-  - Average: 15-20 km/L ⚠️
-  - Poor: <15 km/L ⛽
+  - Excellent: >25 km/L
+  - Good: 20-25 km/L
+  - Average: 15-20 km/L
+  - Poor: <15 km/L
 - Cost per km analysis
 - Fuel spending trends
 
@@ -144,41 +143,12 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 ---
 
-### 🤖 Smart Automation
 
-**Email & SMS Transaction Parsing (NBox)**:
-- Auto-detect transactions from bank SMS and emails
-- Extract merchant names, amounts, and dates
-- Confidence scoring (0-100%)
-- Automatic category assignment
-- Batch import with review workflow
-- Duplicate prevention
-- Warning system for ambiguous data
-
-**Gmail Integration**:
-- Direct Gmail connection for transaction detection
-- Privacy-respecting email parsing
-- Auto-sync capabilities
-- Merchant identification from emails
-
-**PDF Bank Statement Import**:
-- Upload and parse PDF bank statements
-- Extract transaction history
-- Bank detection (automatic/manual)
-- Password-protected PDF support
-- Metadata extraction (bank name, account, period, balances)
-- Batch transaction import with preview
-
-**AI-Powered Features**:
-- Intelligent transaction categorization
-- Context-aware financial assistant
-- Spending pattern analysis
-- Budget recommendations
-- Financial health insights
+<!-- Smart Automation, AI, and PDF features removed as they are not present in the app. -->
 
 ---
 
-### 📈 Analytics & Insights
+### Analytics & Insights
 
 **Financial Health Score**:
 - Comprehensive score (0-100) based on:
@@ -207,7 +177,7 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 ---
 
-### 👨‍👩‍👧‍👦 Family & Shared Expenses
+### Family & Shared Expenses
 
 **Expense Splitting**:
 - Create shared expenses
@@ -228,7 +198,7 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 ---
 
-### ✅ Payday Checklist
+### Payday Checklist
 
 **Smart Post-Income Actions**:
 - Auto-generated checklist after income:
@@ -253,7 +223,7 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 ---
 
-### 🔔 Notifications & Alerts
+### Notifications & Alerts
 
 **Smart Notifications**:
 - Budget warnings (80% threshold)
@@ -274,7 +244,7 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 ---
 
-### ⚙️ Settings & Security
+### Settings & Security
 
 **Biometric Lock**:
 - Fingerprint authentication
@@ -306,7 +276,7 @@ Nexus helps you manage your financial life with features ranging from daily tran
 
 ---
 
-### 📱 User Interface
+### User Interface
 
 **Navigation**:
 Bottom floating navigation bar with 6 tabs:
@@ -314,7 +284,7 @@ Bottom floating navigation bar with 6 tabs:
 2. **Wallet** - Accounts and transactions
 3. **Wealth** - Investments and analytics
 4. **Garage** - Vehicle management
-5. **Inbox** - NBox (SMS/Email transaction parsing)
+5. **Inbox** - Transaction inbox (if implemented)
 6. **More** - Settings and tools
 
 **Design Features**:
@@ -340,16 +310,14 @@ Bottom floating navigation bar with 6 tabs:
 - Firebase Crashlytics (error reporting)
 
 **Integrations**:
-- Gmail API (transaction parsing)
 - Google Drive (document backup)
-- Google AI (Gemini) for smart features
 
 **Device Features**:
 - Biometric authentication
 - File system access
 - Android Auto support
 
-**Currency**: Indian Rupee (₹)
+**Currency**: Indian Rupee (INR)
 
 ---
 
@@ -358,7 +326,6 @@ Bottom floating navigation bar with 6 tabs:
 - All data stored securely in Firebase Cloud Firestore
 - User authentication required
 - Sensitive data (CVV) stored locally in encrypted storage, not in cloud
-- Privacy-respecting email parsing with minimal permissions
 - Biometric-protected app access
 
 ---
@@ -398,11 +365,6 @@ Bottom floating navigation bar with 6 tabs:
 - Document management
 - Challan tracking
 
-### NBox
-- Detected transactions from SMS/Email
-- Transaction preview and editing
-- Batch import with approval workflow
-- Confidence scoring display
 
 ### Insights
 - Financial health dashboard
@@ -426,63 +388,54 @@ Bottom floating navigation bar with 6 tabs:
 ### Prerequisites
 - Flutter SDK
 - Firebase project setup
-- Gmail API credentials (for email parsing)
-- Google AI API key (for AI features)
 
 ### Installation
 1. Clone the repository
 2. Run `flutter pub get`
 3. Configure Firebase (google-services.json for Android, GoogleService-Info.plist for iOS)
-4. Set up Gmail API credentials
-5. Add Google AI API key
-6. Run `flutter run`
+4. Run `flutter run`
 
 ---
 
 ## Features by Use Case
 
 ### For Daily Expense Tracking
-✅ Quick transaction entry
-✅ Auto-categorization
-✅ SMS/Email auto-detection
-✅ Budget alerts
+Quick transaction entry
+Budget alerts
 
 ### For Long-term Financial Planning
-✅ Goal setting and tracking
-✅ Investment portfolio management
-✅ Financial health scoring
-✅ Spending trend analysis
+Goal setting and tracking
+Investment portfolio management
+Financial health scoring
+Spending trend analysis
 
 ### For Debt Management
-✅ Loan tracking with EMI
-✅ Payment reminders
-✅ Payoff date calculation
-✅ Family debt settlement
+Loan tracking with EMI
+Payment reminders
+Payoff date calculation
+Family debt settlement
 
 ### For Vehicle Owners
-✅ Mileage tracking
-✅ Fuel efficiency monitoring
-✅ Document management
-✅ Maintenance logging
+Mileage tracking
+Fuel efficiency monitoring
+Document management
+Maintenance logging
 
 ### For Families
-✅ Shared expense splitting
-✅ Family member management
-✅ Settlement tracking
-✅ IOU management
+Shared expense splitting
+Family member management
+Settlement tracking
+IOU management
 
 ---
 
+
 ## Smart Features Highlights
 
-🎯 **Auto-categorization** - Transactions automatically categorized based on merchant name
-🤖 **AI Assistant** - Context-aware financial advice and insights
-📧 **Email/SMS Parsing** - Auto-detect transactions from notifications
-📊 **Financial Health Score** - Comprehensive assessment with personalized tips
-💡 **Smart Notifications** - Contextual alerts for budgets, goals, and payments
-📈 **Trend Analysis** - Spending patterns and forecasts
-🔄 **Batch Import** - Import multiple transactions from PDF statements
-⚡ **Quick Actions** - Payday checklist for post-income tasks
+**Financial Health Score** - Comprehensive assessment with personalized tips
+**Smart Notifications** - Contextual alerts for budgets, goals, and payments
+**Trend Analysis** - Spending patterns and forecasts
+**Quick Actions** - Payday checklist for post-income tasks
 
 ---
 
@@ -492,16 +445,10 @@ Contributions are welcome! Please feel free to submit pull requests or open issu
 
 ---
 
-## License
-
-[Add your license information here]
-
----
-
 ## Support
 
 For issues, bugs, or feature requests, please open an issue in the repository.
 
 ---
 
-**Built with ❤️ using Flutter**
+**Built with Flutter**
