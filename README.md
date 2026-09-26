@@ -1,454 +1,117 @@
-# Nexus - Personal Finance Management App
+# 🏦 Nexus - Personal Finance Management App
 
-A comprehensive Flutter-based personal finance management app with intelligent automation, built with Firebase backend.
+A comprehensive Flutter-based personal finance management app with automated transaction detection, intelligent insights, vehicle management, and Firebase cloud synchronization.
 
 ## Overview
 
-Nexus helps you manage your financial life with features ranging from daily transaction tracking to investment management, vehicle maintenance, and family expense sharing. Built with Material Design and a modern dark theme.
+Nexus helps you take total control of your financial life—from daily automated transaction parsing to investment tracking, vehicle maintenance, family expense sharing, and savings goals. Built with Material Design 3 and an expressive dark glassmorphic theme.
+
+---
+
+## What's New & Key Highlights
+
+* **Over-The-Air (OTA) Updates:** In-app GitHub release checker with interactive consent dialog, progress tracking, release notes, and automated package installer.
+* **N-Box Automated Transaction Inbox:** Real-time SMS & Gmail parsing for bank transaction alerts with AI-assisted merchant categorization learning.
+* **Android Home Screen Widgets:** Interactive widgets for quick balance checks, instant transaction entry, and logging fuel entries.
+* **Android Auto Integration:** Vehicle garage overview, service tracking, and quick fuel logging on car infotainment displays.
+* **Bank Statement Import (PDF):** Parse and reconcile PDF bank statements (SBI, IDFC, Slice, etc.) with password support.
+* **Live Mutual Fund NAVs & Fuel Prices:** Real-time NAV updates via MFAPI and state-wise live petrol/diesel price tracking.
 
 ---
 
 ## Core Features
 
-### Finance Management
+### 1. N-Box Automated Transaction Inbox
+* **SMS Parsing:** Real-time background and foreground SMS listener (`another_telephony`) for bank debits, credits, and balance alerts.
+* **Gmail Sync:** Secure Google Sign-In & Gmail API integration to scan bank e-statements and transaction alert emails.
+* **Merchant Knowledge Base:** Self-learning system (`MerchantKnowledge`) that remembers merchant-to-category mappings and account links.
+* **Bank Statement Parser:** Import PDF bank statements (SBI, IDFC, Slice, etc.), auto-extract transactions, and reconcile missing entries.
+* **Inbox Review:** Single-tap approval, categorization, or dismissal of detected transactions.
 
-**Accounts**
-- Create and manage multiple accounts (Savings, Salary, Investment, Cash, etc.)
-- Real-time balance tracking
-- Support for card details, bank name, and account numbers
-- Color-coded account identification
-- Account activity tracking
+### 2. Over-The-Air (OTA) Updates
+* **GitHub Releases Integration:** Fetches release metadata directly from `Nadhiii/Nexus-APK`.
+* **In-App Consent Dialog:** Prompts user with "What's New" release notes, file size badge, pre-release/beta tag, and current vs. new version comparison.
+* **Live Download Progress:** In-app progress bar with percentage, background notification progress, and cancel option.
+* **Automated Installation:** Prompts native Android package installer upon download completion.
+* **Background Checks:** Workmanager periodic task (every 6 hours) and startup check notifying when new updates are available.
+* **Channel Toggle:** Switch between Stable and Beta release channels.
 
-**Transactions**
-- Track income, expenses, and account transfers
-- Attach receipts and notes
-- Bulk operations (multi-select, batch delete)
-- Transaction history with advanced filtering
-- Smart duplicate detection
+### 3. Android Widgets & Android Auto
+* **Home Screen Widgets:**
+  * **Balance Widget:** Displays total balance across accounts with quick dashboard access.
+  * **Quick Transaction Widget:** One-tap buttons for logging income/expenses or viewing transaction history.
+  * **Garage Widget:** Quick fuel logging, vehicle overview, and mileage check directly from the home screen.
+* **Android Auto Support:**
+  * Native Automotive OS interface (`NexusCarAppService`) showing vehicle details, fuel logs, and service reminders on car infotainment screens.
 
-**Budgets**
-- Set budgets by category with flexible time periods (weekly, monthly, quarterly, etc.)
-- Real-time spending tracking with progress indicators
-- Alert notifications at 80% threshold
-- Overspend detection and warnings
-- Daily spending recommendations
-- Budget adherence tracking
+### 4. Finance Management
+* **Accounts:** Create and manage multiple account types (Savings, Salary, Credit Card, Investment, Cash, Wallet). Track real-time net worth, store bank details (with encrypted CVV storage), and view activity history.
+* **Transactions:** Track Income, Expense, and Transfers. Attach notes, tags, and category metadata. Includes multi-select batch operations, advanced filtering, and smart duplicate detection.
+* **Budgets:** Category-based budget limits with custom intervals. Features a real-time progress bar, 80% threshold warnings, overspend detection, and daily safe-to-spend calculations.
+* **Categories:** System defaults and custom user categories with emoji icons, custom colors, and reordering.
 
-**Categories**
-- Predefined and custom categories with emoji icons
-- Color-coded organization
-- Category-based reports and filtering
+### 5. Investment Tracking
+* **Supported Types:** Mutual Funds (live NAV via MFAPI), Stocks, Cryptocurrencies, Gold & Precious Metals, Real Estate, and Fixed Deposits.
+* **Features:** Real-time profit/loss calculations, portfolio growth charts, SIP linking to savings goals, and Folio/ISIN tracking.
 
----
+### 6. Debt & Loan Management
+* **Loan Types:** Personal, Home, Car, Education, Business, Gold, Two-Wheeler Loans, and Credit Cards.
+* **Features:** EMI calculator (Principal vs. Interest breakdown), payment schedules, payoff date calculation, and overdue detection.
+* **Family Debts (IOUs):** Track money lent/borrowed with net balance calculations and settlement history.
 
-### Investment Tracking
+### 7. Vehicle & Garage Management
+* **Garage Hub:** Manage multiple vehicles. Store Make, model, year, registration number, and RTO info.
+* **Fuel & Mileage:** Log fuel entries (odometer, quantity, price) for automatic fuel efficiency calculation (km/L). Track cost-per-kilometer and view live state/city petrol and diesel prices.
+* **Documents & Challans:** Store RC, Insurance, and PUC expiry dates with alerts. Log traffic challans with payment status and receipts.
 
-**Supported Investment Types**:
-- Mutual Funds (with SIP tracking)
-- Stocks
-- Cryptocurrencies
-- Gold
-- Real Estate
-- Custom investments
+### 8. Subscriptions & Savings Goals
+* **Subscriptions:** Recurring billing tracking with automatic due date calculation, overdue warnings, and monthly cost analysis.
+* **Savings Goals:** Target amount/date tracking, visual progress bars, and direct linking to accounts or SIP investments.
 
-**Features**:
-- Track invested amount vs current value
-- Automatic profit/loss calculation
-- Performance metrics and trends
-- ISIN/folio tracking for mutual funds
-- NAV and unit tracking
-- Investment timeline and history
+### 9. Payday Checklist & Analytics
+* **Payday Checklist:** Auto-generated priority checklist upon receiving income (EMI payments, IOUs, subscriptions, budget allocations).
+* **Financial Health Score:** 0–100 rating based on savings rate, debt-to-income ratio, budget adherence, and emergency fund size.
+* **Reports:** Export to PDF/CSV. View Income vs. Expense charts, category breakdowns, and spending forecasts.
 
----
+### 10. Family & Shared Expenses
+* Shared expense splitting (Equal, Custom Amount, Percentage-based).
+* Participant balance summaries ("Who owes whom") and settlement tracking.
 
-### Debt & Loan Management
-
-**Loan Types**:
-- Personal, Home, Car, Education, Business loans
-- Gold loans, Two-wheeler loans
-- Credit cards
-- Custom loan types
-
-**Features**:
-- EMI calculation and tracking
-- Payment schedules with reminders
-- Interest vs principal breakdown
-- Remaining months and payoff date
-- Overdue detection and alerts
-- Payment history tracking
-
-**Family Debts (IOUs)**:
-- Track money owed to/by family members
-- Payment record tracking
-- Settlement status and history
-- Net balance calculations
+### 11. Security & Backup
+* **Security:** Biometric Fingerprint & Face Unlock (`local_auth`). Encrypted local storage for sensitive card data (`flutter_secure_storage`).
+* **Backup:** Automatic and manual Firebase Cloud Firestore backup/restore.
+* **Stability:** Integrated Firebase Crashlytics.
 
 ---
 
-### Subscription Management
+## Technical Architecture
 
-**Features**:
-- Track recurring subscriptions with various frequencies (daily to yearly)
-- Automatic due date calculation
-- Overdue detection and warnings
-- Total monthly subscription cost analysis
-- Category-wise subscription breakdown
-- Status tracking (active/inactive)
-
----
-
-### Savings Goals
-
-**Features**:
-- Set financial goals with target amounts and dates
-- Progress tracking with visual indicators
-- Remaining amount and time calculations
-- Goal achievement notifications
-- Milestone celebrations
-- Linked account tracking
+* **Framework:** Flutter (Dart 3.x)
+* **State Management:** Provider (`ChangeNotifier`, `ProxyProvider`)
+* **Theme:** Expressive dark theme with frosted glass navigation blur (`ui.ImageFilter.blur`).
+* **Backend & Storage:**
+  * Firebase Cloud Firestore & Authentication
+  * Firebase Crashlytics
+  * `shared_preferences` & `flutter_secure_storage`
+* **Networking & API:**
+  * `dio` & `http` (GitHub API, MFAPI, Fuel Price API)
+  * Google APIs (`googleapis`, `google_sign_in`)
+* **Native Android Integrations:**
+  * `flutter_local_notifications` & `workmanager` (Background OTA polling)
+  * `another_telephony` (SMS Broadcast Receiver)
+  * `open_file` (Package installer launcher)
+  * Android Home Screen Widgets (`AppWidgetProvider`)
+  * Android Auto (`CarAppService`)
 
 ---
 
-### Vehicle/Bike Management
-
-**Garage Features**:
-- Manage multiple vehicles
-- Track make, model, year, registration
-- Insurance tracking with expiry alerts
-- RTO details management
-- Dashboard pinning for quick access
-
-**Fuel & Mileage Tracking**:
-- Log fuel entries with odometer readings
-- Automatic mileage calculation (km/L)
-- Fuel efficiency ratings:
-  - Excellent: >25 km/L
-  - Good: 20-25 km/L
-  - Average: 15-20 km/L
-  - Poor: <15 km/L
-- Cost per km analysis
-- Fuel spending trends
-
-**Document Management**:
-- Upload RC, insurance, PUC certificates
-- Expiry date tracking with alerts
-- Google Drive integration for backups
-- Document categorization
-
-**Challan Tracking**:
-- Log traffic violations and fines
-- Payment tracking with deadlines
-- Receipt storage
-- Violation type categorization
-
----
-
-
-<!-- Smart Automation, AI, and PDF features removed as they are not present in the app. -->
-
----
-
-### Analytics & Insights
-
-**Financial Health Score**:
-- Comprehensive score (0-100) based on:
-  - Savings rate (25 points)
-  - Debt-to-income ratio (25 points)
-  - Budget adherence (25 points)
-  - Emergency fund (15 points)
-  - Penalties for debts and overdue payments
-- Letter grades: A+, A, B, C, D, F
-- Personalized improvement tips
-
-**Reports & Analytics**:
-- Spending trends by category
-- Income vs expense comparison
-- Monthly spending patterns
-- Investment performance tracking
-- Goal progress analysis
-- Export reports (PDF, CSV)
-- Custom date range analysis
-
-**Expense Trends**:
-- Category-wise trend analysis
-- Year-over-year comparison
-- Spending forecasts
-- Anomaly detection
-
----
-
-### Family & Shared Expenses
-
-**Expense Splitting**:
-- Create shared expenses
-- Multiple participants
-- Flexible split options:
-  - Equal split
-  - Custom amounts
-  - Percentage-based
-- Settlement tracking
-- Who paid tracking
-- Category assignment
-
-**Family Management**:
-- Add and manage family members
-- Track shared obligations
-- Settlement summaries
-- Net balance calculations
-
----
-
-### Payday Checklist
-
-**Smart Post-Income Actions**:
-- Auto-generated checklist after income:
-  - Debt EMI payments (with due dates)
-  - Family debt obligations
-  - Subscription payments
-  - Budget allocations
-  - Goal contributions
-  - Savings transfers
-
-**Priority Levels**:
-- Urgent (due within 3 days or overdue)
-- High (due within 7 days)
-- Medium (due within 14 days)
-- Low (suggested/optional)
-
-**Analysis**:
-- Total obligations calculation
-- Income coverage check
-- Suggested savings amount
-- Remaining after obligations
-
----
-
-### Notifications & Alerts
-
-**Smart Notifications**:
-- Budget warnings (80% threshold)
-- Goal progress and achievements
-- Subscription and bill reminders
-- Unusual spending alerts
-- Transaction confirmations
-- Fuel efficiency feedback
-- Insurance expiry warnings
-- Payment due reminders
-
-**Notification Features**:
-- Action buttons for quick response
-- Notification history
-- Deep linking to relevant screens
-- Customizable preferences
-- Category-based filtering
-
----
-
-### Settings & Security
-
-**Biometric Lock**:
-- Fingerprint authentication
-- Face recognition support
-- Secure app access
-- Card data encryption
-
-**Backup & Restore**:
-- Automatic cloud backup to Firestore
-- Complete data restoration
-- Profile and metadata backup
-- Transaction history preservation
-
-**Theme**:
-- Modern dark theme
-- Custom color schemes
-- Material Design components
-- Frosted glass effects
-
-**Notification Settings**:
-- Granular control by notification type
-- Custom timing preferences
-- Enable/disable specific alerts
-
-**Category Management**:
-- Create custom categories
-- Edit category details (name, emoji, color)
-- Category reordering
-
----
-
-### User Interface
-
-**Navigation**:
-Bottom floating navigation bar with 6 tabs:
-1. **Home** - Dashboard with financial overview
-2. **Wallet** - Accounts and transactions
-3. **Wealth** - Investments and analytics
-4. **Garage** - Vehicle management
-5. **Inbox** - Transaction inbox (if implemented)
-6. **More** - Settings and tools
-
-**Design Features**:
-- Material Design with custom dark theme
-- Frosted glass navigation effects
-- Smooth animations and transitions
-- Swipe-to-delete actions
-- Multi-select operations
-- Search and filtering
-- Progress indicators
-- Color-coded status displays
-
----
-
-## Technical Stack
-
-**Framework**: Flutter (Dart)
-
-**Backend**:
-- Firebase Cloud Firestore (database)
-- Firebase Authentication
-- Firebase Cloud Storage (documents)
-- Firebase Crashlytics (error reporting)
-
-**Integrations**:
-- Google Drive (document backup)
-
-**Device Features**:
-- Biometric authentication
-- File system access
-- Android Auto support
-
-**Currency**: Indian Rupee (INR)
-
----
-
-## Data & Privacy
-
-- All data stored securely in Firebase Cloud Firestore
-- User authentication required
-- Sensitive data (CVV) stored locally in encrypted storage, not in cloud
-- Biometric-protected app access
-
----
-
-## Key Screens
-
-### Dashboard
-- Total balance across accounts
-- Recent transactions
-- Budget status overview
-- Goals progress
-- Financial health score
-- Quick action buttons
-
-### Finance
-- Account detail views
-- Transaction history with filtering
-- Add/edit transaction screens
-- Budget management
-
-### Investments
-- Portfolio overview
-- Individual investment details
-- Performance charts
-- Add investment screens
-
-### Debts
-- Loan management
-- Payment schedules
-- Family debt tracking
-- EMI calculator
-
-### Garage
-- Vehicle list
-- Fuel entries
-- Mileage statistics
-- Document management
-- Challan tracking
-
-
-### Insights
-- Financial health dashboard
-- Spending trends
-- Category breakdowns
-- Reports and analytics
-
-### More
-- Analytics and reports
-- Category management
-- Family dashboard
-- Expense splitter
-- Backup settings
-- Notification preferences
-- About and help
-
----
-
-## Getting Started
-
-### Prerequisites
-- Flutter SDK
-- Firebase project setup
-
-### Installation
-1. Clone the repository
-2. Run `flutter pub get`
-3. Configure Firebase (google-services.json for Android, GoogleService-Info.plist for iOS)
-4. Run `flutter run`
-
----
-
-## Features by Use Case
-
-### For Daily Expense Tracking
-Quick transaction entry
-Budget alerts
-
-### For Long-term Financial Planning
-Goal setting and tracking
-Investment portfolio management
-Financial health scoring
-Spending trend analysis
-
-### For Debt Management
-Loan tracking with EMI
-Payment reminders
-Payoff date calculation
-Family debt settlement
-
-### For Vehicle Owners
-Mileage tracking
-Fuel efficiency monitoring
-Document management
-Maintenance logging
-
-### For Families
-Shared expense splitting
-Family member management
-Settlement tracking
-IOU management
-
----
-
-
-## Smart Features Highlights
-
-**Financial Health Score** - Comprehensive assessment with personalized tips
-**Smart Notifications** - Contextual alerts for budgets, goals, and payments
-**Trend Analysis** - Spending patterns and forecasts
-**Quick Actions** - Payday checklist for post-income tasks
-
----
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit pull requests or open issues for bugs and feature requests.
-
----
-
-## Support
-
-For issues, bugs, or feature requests, please open an issue in the repository.
-
----
-
-**Built with Flutter**
+## Key Screens & Navigation
+
+The bottom navigation bar features 6 core tabs:
+
+1. **Home:** Dashboard overview, total balance, recent transactions, financial health score, payday checklist, and quick action buttons.
+2. **Wallet:** Accounts list, card details, transaction history, filtering, and add transaction screen.
+3. **Wealth:** Investments, portfolio performance, mutual fund NAVs, and savings goals.
+4. **Garage:** Vehicle details, fuel log, mileage stats, document expiry alerts, and challan tracking.
+5. **N-Box:** Automated SMS & Gmail transaction inbox for approval and category learning.
+6. **More:** Reports & PDF export, category manager, family splitter, backup settings, OTA updates, and notification preferences.
