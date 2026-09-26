@@ -1,4 +1,4 @@
-# 🏦 Nexus - Personal Finance Management App
+# Nexus - Personal Finance Management App
 
 A comprehensive Flutter-based personal finance management app with automated transaction detection, intelligent insights, vehicle management, and Firebase cloud synchronization.
 
